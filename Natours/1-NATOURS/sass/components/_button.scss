@@ -8,6 +8,7 @@
     border-radius: 100px;
     transition: all .2s;
     position: relative;
+    font-size: 1.6rem;
   }
   &:hover{
     transform: translateY(-3px);
@@ -26,6 +27,13 @@
     color: #777;
     &::after{
       background: #fff;
+    }
+  }
+  &--green{
+    background-color:$color-primary;
+    color: $color-white;
+    &::after{
+      background:$color-primary;
     }
   }
   &:after{
