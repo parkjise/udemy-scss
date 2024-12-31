@@ -152,7 +152,8 @@ body {
 .bg-video__content {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .btn, .btn:link, .btn:visited {
@@ -441,6 +442,11 @@ body {
   display: block;
   transition: all 0.3s;
 }
+.form__input:-moz-placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
@@ -537,8 +543,6 @@ body {
   column-count: 2;
   column-gap: 4rem;
   column-rule: 1px solid #eee;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
@@ -580,7 +584,6 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-shape-outside: circle(50% at 50% 50%);
   shape-outside: circle(50% at 50% 50%);
   -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);

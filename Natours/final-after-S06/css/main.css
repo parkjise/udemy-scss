@@ -88,6 +88,11 @@ body {
   }
 }
 
+::-moz-selection {
+  background-color: #55c57a;
+  color: #fff;
+}
+
 ::selection {
   background-color: #55c57a;
   color: #fff;
@@ -225,7 +230,8 @@ body {
 .bg-video__content {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .btn, .btn:link, .btn:visited {
@@ -317,7 +323,6 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 3px;
   overflow: hidden;
@@ -438,7 +443,8 @@ body {
   }
   .card__side--back {
     transform: rotateY(0);
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
   }
   .card:hover .card__side--front {
     transform: rotateY(0);
@@ -595,6 +601,11 @@ body {
   display: block;
   transition: all 0.3s;
 }
+.form__input:-moz-placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
@@ -659,7 +670,7 @@ body {
   visibility: hidden;
   transition: all 0.3s;
 }
-@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   .popup {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -704,8 +715,6 @@ body {
   column-count: 2;
   column-gap: 4rem;
   column-rule: 1px solid #eee;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
@@ -764,11 +773,10 @@ body {
   overflow: hidden;
   border-radius: 50%;
 }
-@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) or (-webkit-clip-path: polygon(0 0)) {
   .story__shape {
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
-    -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     border-radius: none;
   }
@@ -950,14 +958,14 @@ body {
   background-position: top;
   position: relative;
 }
-@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) or (-webkit-clip-path: polygon(0 0)) {
   .header {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     height: 95vh;
   }
 }
-@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and (min-width: 125em) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), only screen and (min-resolution: 192dpi) and (min-width: 37.5em), only screen and (min-width: 125em) {
   .header {
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   }
